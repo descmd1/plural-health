@@ -3,7 +3,7 @@ export const Userdata = [
     {
         serialNumber: "1",
         name: "Akpopodion Endurance",
-        userId: "HOSP2938476",
+        patientId: "HOSP2938476",
         gender: "male",
         age: "21yrs",
         type: "New",
@@ -17,7 +17,7 @@ export const Userdata = [
     {
         serialNumber: "2",
         name: "Boluwatife Olusola",
-        userId: "HOSP87654321",
+        patientId: "HOSP87654321",
         gender: "Female",
         age: "30yrs",
         type: "New",
@@ -31,7 +31,7 @@ export const Userdata = [
     {
         serialNumber: "3",
         name: "Aile Mertz",
-        userId: "HOSP76354892",
+        patientId: "HOSP76354892",
         gender: "Female",
         age: "23days",
         type: "New",
@@ -45,7 +45,7 @@ export const Userdata = [
     {
         serialNumber: "4",
         name: "Akuchi Amadi",
-        userId: "HOSP98765432",
+        patientId: "HOSP98765432",
         gender: "Female",
         age: "11mths",
         department: "Accident & Emergency",
@@ -58,7 +58,7 @@ export const Userdata = [
     {
         serialNumber: "5",
         name: "Omolola Bakare",
-        userId: "HOSP23456789",
+        patientId: "HOSP23456789",
         gender: "Female",
         age: "26yrs",
         department: "Accident & Emergency",
@@ -84,7 +84,7 @@ export const Userdata = [
     {
         serialNumber: "7",
         name: "Ngozi Okeke",
-        userId: "HOSP5678901",
+        patientId: "HOSP5678901",
         gender: "Female",
         age: "11mths",
         department: "Accident & Emergency",
@@ -97,7 +97,7 @@ export const Userdata = [
     {
         serialNumber: "8",
         name: "Chinwe Azikiwe",
-        userId: "HOSP56789012",
+        patientId: "HOSP56789012",
         gender: "Female",
         age: "11mths",
         department: "Accident & Emergency",

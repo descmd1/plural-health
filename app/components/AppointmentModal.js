@@ -16,7 +16,7 @@ const AppointmentModal = ({ isOpen, onClose, onSave }) => {
     return (
         <>
             <div className="fixed inset-0 bg-transparent bg-opacity-50 flex items-center justify-center p-4 z-50">
-                <div className="bg-[#EDF0F8] rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto scrollbar-hide">
+                <div className="bg-[#EDF0F8] rounded-lg shadow-xl md:w-full w-screen md:max-w-2xl max-h-[90vh] overflow-y-auto scrollbar-hide">
                     {/* Header */}
                     <div className="px-6 py-4 flex w-full justify-between items-center">
                         <h2 className="text-xl font-semibold text-[#051438] mt-1">
@@ -24,7 +24,7 @@ const AppointmentModal = ({ isOpen, onClose, onSave }) => {
                         </h2>
                         <button
                             onClick={onClose}
-                            className="h-8 w-8 flex items-center justify-center rounded-full bg-[#DFE2E9]"
+                            className="h-8 w-8 flex items-center justify-center rounded-full bg-[#DFE2E9] cursor-pointer"
                         >
                             <XIcon size={16} color="black" />
                         </button>
@@ -88,7 +88,7 @@ const AppointmentModal = ({ isOpen, onClose, onSave }) => {
                                     </div>
                                     {/*  Calendar */}
 
-                                    <div className=" flex justify-between bg-[#677597] rounded-lg p-4 w-full max-w-3xl h-80">
+                                    <div className="flex justify-between bg-[#677597] rounded-lg p-4 w-full md:max-w-3xl h-80">
                                         <List size={22} color="#CDD8F3" />
                                         <div className="flex flex-col items-center w-80">
                                             <h2 className="flex w-79 items-center justify-between text-lg font-semibold text-[#CDD8F3] mb-4 text-center">

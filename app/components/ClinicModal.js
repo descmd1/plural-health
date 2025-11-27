@@ -23,13 +23,14 @@ export default function ClinicModal({ open, onClose }) {
     if (!open) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-start justify-center bg-transparent bg-opacity-50 pt-14">
+        <div className="fixed inset-0 z-50 flex items-start 
+        justify-center bg-transparent bg-opacity-50 pt-14">
             {/* Modal Container */}
             <div
-                className="bg-[#F7F8FA] rounded-2xl w-full max-w-lg mx-4 animate-fadeIn h-[85vh] overflow-hidden"
+                className="bg-[#F7F8FA] rounded-2xl w-full max-w-[538px] 
+                mx-4 animate-fadeIn h-[516px] overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
             >
-                {/* Top Bar */}
                 <div className="flex items-center justify-between px-6 pt-6">
                     <h2 className="text-xl font-semibold text-[#0A1533]">
                         Clinic
@@ -37,7 +38,8 @@ export default function ClinicModal({ open, onClose }) {
 
                     <button
                         onClick={onClose}
-                        className="w-8 h-8 rounded-full bg-[#DFE2E9] flex items-center justify-center hover:bg-[#D0D5DD] transition-colors"
+                        className="w-8 h-8 rounded-full bg-[#DFE2E9] flex items-center 
+                        justify-center hover:bg-[#D0D5DD] transition-colors cursor-pointer"
                     >
                         <XIcon size={16} color="black" />
                     </button>
@@ -45,11 +47,13 @@ export default function ClinicModal({ open, onClose }) {
 
                 {/* Search Bar */}
                 <div className="px-6 mt-4">
-                    <div className="flex items-center bg-white border border-[#D0D5DD] rounded-xl px-4 h-12 shadow-sm">
+                    <div className="flex items-center bg-white border 
+                    border-[#D0D5DD] rounded-xl px-4 h-12 shadow-sm">
                         <input
                             type="text"
                             placeholder="Search clinic"
-                            className="flex-1 outline-none font-normal text-[#98A2B3] placeholder-[#98A2B3] text-md"
+                            className="flex-1 outline-none font-normal text-[#98A2B3] 
+                            placeholder-[#98A2B3] text-md"
                         />
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -68,21 +72,26 @@ export default function ClinicModal({ open, onClose }) {
                     </div>
                 </div>
 
-                {/* List */}
-                <div className="w-full px-6 mt-4 pb-6 text-[#0A1533] text-xl font-medium overflow-y-auto scrollbar-hide">
-                    <p className="cursor-pointer text-[#051438] text-sm transition-colors hover:bg-[#D7E3FC] p-2">
+                <div className="w-full px-6 mt-4 pb-6 text-[#0A1533] text-xl 
+                font-medium overflow-y-auto scrollbar-hide">
+                    <p className="cursor-pointer text-[#051438] text-sm transition-colors 
+                    hover:bg-[#D7E3FC] p-2">
                         Accident and Emergency
                     </p>
-                    <p className="cursor-pointer text-[#051438] text-sm transition-colors hover:bg-[#D7E3FC] p-2">
+                    <p className="cursor-pointer text-[#051438] text-sm 
+                    transition-colors hover:bg-[#D7E3FC] p-2">
                         Neurology
                     </p>
-                    <p className="cursor-pointer text-[#051438] text-sm transition-colors hover:bg-[#D7E3FC] p-2">
+                    <p className="cursor-pointer text-[#051438] text-sm 
+                    transition-colors hover:bg-[#D7E3FC] p-2">
                         Cardiology
                     </p>
-                    <p className="cursor-pointer text-[#051438] text-sm transition-colors hover:bg-[#D7E3FC] p-2">
+                    <p className="cursor-pointer text-[#051438] text-sm 
+                    transition-colors hover:bg-[#D7E3FC] p-2">
                         Gastroenterology
                     </p>
-                    <p className="cursor-pointer text-[#051438] text-sm transition-colors hover:bg-[#D7E3FC] p-2">
+                    <p className="cursor-pointer text-[#051438] text-sm 
+                    transition-colors hover:bg-[#D7E3FC] p-2">
                         Renal
                     </p>
                 </div>

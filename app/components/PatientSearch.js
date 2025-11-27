@@ -1,14 +1,12 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
-import { Search, Fingerprint, ListFilter, ChevronDown } from "lucide-react";
+import { Search, Fingerprint, ListFilter } from "lucide-react";
 
 const PatientSearch = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [selectedPatient, setSelectedPatient] = useState(null);
     const dropdownRef = useRef(null);
 
-    // Sample patient data
     const patients = [
         { id: 1, name: "John Doe", patientId: "PLAT-S/009089", age: 32 },
         { id: 2, name: "Jane Smith", patientId: "PLAT-S/0124789", age: 28 },
@@ -16,7 +14,6 @@ const PatientSearch = () => {
         { id: 4, name: "David Brown", patientId: "PLAT-S/215636", age: 61 },
     ];
 
-    // Filter patients based on search query
     const filteredPatients = searchQuery
         ? patients.filter(
               (patient) =>
@@ -53,30 +50,26 @@ const PatientSearch = () => {
     };
 
     const handlePatientSelect = (patient) => {
-        setSelectedPatient(patient);
-        setSearchQuery(patient.name);
+        setSearchQuery(`${patient.name} ${patient.patientId}`);
         setIsDropdownOpen(false);
     };
 
     const handleInputChange = (e) => {
         setSearchQuery(e.target.value);
-        setSelectedPatient(null);
         if (!isDropdownOpen) {
             setIsDropdownOpen(true);
         }
-    };
-
-    const clearSelection = () => {
-        setSearchQuery("");
-        setSelectedPatient(null);
-        setIsDropdownOpen(false);
     };
 
     return (
         <div className="relative w-full" ref={dropdownRef}>
             {/* Search Input */}
             <div
-                className="flex items-center justify-center relative bg-white rounded-lg w-full border border-gray-300 focus-within:border-blue-500 focus-within:ring-2 focus-within:ring-blue-200 transition-all duration-200 cursor-text"
+                className="flex items-center justify-center 
+                relative bg-white rounded-lg w-full border 
+                border-gray-300 focus-within:border-blue-500 
+                focus-within:ring-2 focus-within:ring-blue-200 transition-all 
+                duration-200 cursor-text"
                 onClick={handleInputClick}
             >
                 <Search size={18} className="absolute left-3 text-slate-400" />
@@ -86,7 +79,8 @@ const PatientSearch = () => {
                     value={searchQuery}
                     onChange={handleInputChange}
                     onFocus={handleInputFocus}
-                    className="w-full bg-transparent text-slate-700 pl-10 pr-4 py-2 outline-none placeholder:text-slate-400 text-sm cursor-text"
+                    className="w-full bg-transparent text-slate-700 pl-10 pr-4 
+                    py-2 outline-none placeholder:text-slate-400 text-sm cursor-text"
                 />
                 <div className="flex items-center pr-4 py-1 gap-2">
                     <Fingerprint
@@ -110,20 +104,25 @@ const PatientSearch = () => {
 
             {/* Dropdown */}
             {isDropdownOpen && (
-                <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto scrollbar-hide">
+                <div className="absolute top-full left-0 right-0 mt-1 bg-white 
+                border border-gray-200 rounded-lg shadow-lg z-50 max-h-60 
+                overflow-y-auto scrollbar-hide">
                     {filteredPatients.length > 0 ? (
                         <div className="py-2">
                             {filteredPatients.map((patient) => (
                                 <div
                                     key={patient.id}
                                     onClick={() => handlePatientSelect(patient)}
-                                    className="flex items-center justify-between px-4 py-2 hover:bg-[#D7E3FC] cursor-pointer transition-colors"
+                                    className="flex items-center justify-between 
+                                    px-4 py-2 hover:bg-[#D7E3FC] cursor-pointer 
+                                    transition-colors"
                                 >
                                     <div className="flex gap-3">
                                         <div className="font-medium text-slate-700">
                                             {patient.name}
                                         </div>
-                                        <div className="text-lg uppercase font-normal text-slate-500">
+                                        <div className="text-lg uppercase font-normal 
+                                        text-slate-500">
                                             {patient.patientId}
                                         </div>
                                     </div>
@@ -135,27 +134,6 @@ const PatientSearch = () => {
                             No patients found
                         </div>
                     )}
-                </div>
-            )}
-            {selectedPatient && (
-                <div className="mt-2 p-3 bg-blue-50 rounded-lg border border-blue-200">
-                    <div className="flex justify-between items-center">
-                        <div>
-                            <div className="font-medium text-blue-800">
-                                {selectedPatient.name}
-                            </div>
-                            <div className="text-sm text-blue-600">
-                                {selectedPatient.patientId} •{" "}
-                                {selectedPatient.age}yrs
-                            </div>
-                        </div>
-                        <button
-                            onClick={clearSelection}
-                            className="text-sm text-blue-600 hover:text-blue-800 font-medium"
-                        >
-                            Clear
-                        </button>
-                    </div>
                 </div>
             )}
         </div>
