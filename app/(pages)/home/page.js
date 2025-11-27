@@ -1,23 +1,30 @@
 'use client'
 import { useState } from "react"
 import UserList from "@/app/components/UserList"
-import { AlignLeft, AlignRight, ArrowDown, Bell, BellDot, BellRing, ChevronDown, ChevronLeft, ChevronRight, Fingerprint, MoveDown, PlusCircle, PlusSquare, Search, User, User2, UserCircle, UserCircle2Icon } from "lucide-react"
+import { AlignLeft, AlignRight, ListFilter, Bell, BellDot, BellRing, ChevronDown, ChevronLeft, ChevronRight, Fingerprint, MoveDown, PlusCircle, PlusSquare, Search, User, User2, UserCircle, UserCircle2Icon, ArrowDownWideNarrow } from "lucide-react"
 import Image from "next/image"
 import AddPatientModal from "@/app/components/AddPatientModal"
+import AppointmentModal from "@/app/components/AppointmentModal"
 
 const page = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
 
   const handleSavePatient = (patientData) => {
     console.log('Saving patient:', patientData);
     // Handle saving patient data
     setIsModalOpen(false);
   };
+  const handleSaveAppointment = (appointmentData) => {
+    console.log('Creating appointment:', appointmentData);
+    // Handle appointment creation
+    setIsAppointmentModalOpen(false);
+  };
   return (
     <div className="flex flex-col bg-[#EDF0F8] min-h-screen bg-[#EDF0F8]">
       <div className="flex flex-col w-full gap-4">
         <header className="flex justify-between items-center w-full bg-[#EDF0F8] py-3 px-6 border-b-1 border-slate-300">
-          <Image src='./plural logo.svg' width={80} height={80}/>
+          <Image src='./plural logo.svg' alt="logo" width={80} height={80}/>
           <div className="flex gap-4">
             <p className="text-normal font-semibold font-sm text-slate-900 m-0">22 September</p>
             <p className="text-normal font-sm text-slate-600 m-0">09:34 AM</p>
@@ -42,7 +49,7 @@ const page = () => {
   />
   <div className="flex items-center pr-4 py-1 gap-2">
     <Fingerprint size={18} />
-    <AlignRight size={18} />
+    <ListFilter size={18} />
   </div>
 </div>
 
@@ -53,7 +60,9 @@ const page = () => {
 Add new patient
 <PlusCircle size={14} fill="#fff" color="black"/>
   </button>
-  <button className="flex gap-2 p-2 items-center font-semibold text-sm bg-[#0B0C7D] rounded-md">
+  <button 
+  onClick={() => setIsAppointmentModalOpen(true)}
+  className="flex gap-2 p-2 items-center font-semibold text-sm bg-[#0B0C7D] rounded-md">
     Create new patient
     <PlusSquare size={14} fill="#fff" color="black"/>
   </button>
@@ -68,8 +77,9 @@ Add new patient
   </div>
   <div className="flex items-center gap-1">
     <div className="flex gap-0">
-    <MoveDown size={16} color="#0B0C7D"/>
-    <AlignLeft size={12} color="#0B0C7D" className="mt-1"/>
+    {/* <MoveDown size={16} color="#0B0C7D"/>
+    <AlignLeft size={12} color="#0B0C7D" className="mt-1"/> */}
+    <ArrowDownWideNarrow size={16} color="#0B0C7D"/>
     </div>
     <p className="text-[#0B0C7D] font-medium text-base m-0">Sort by</p>
   </div>
@@ -89,6 +99,11 @@ Add new patient
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSave={handleSavePatient}
+      />
+      <AppointmentModal
+        isOpen={isAppointmentModalOpen}
+        onClose={() => setIsAppointmentModalOpen(false)}
+        onSave={handleSaveAppointment}
       />
     </div>
   )

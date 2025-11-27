@@ -25,7 +25,13 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans); 
 }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 
+.scrollbar-hide {
+  scrollbar-width: none;
+}
 
 @font-face {
   font-family: 'Gilroy';
@@ -58,3 +64,6 @@ body {
   font-style: normal;
   font-display: swap;
 }
+
+
+        
